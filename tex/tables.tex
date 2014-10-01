@@ -1,0 +1,46 @@
+\documentclass[a4paper,11pt, titlepage]{scrartcl}
+\input{settings.tex}
+\begin{document}
+
+\titlehead{
+\begin{center}
+    Hochschule für Technik, Wirtschaft und Kultur Leipzig \\
+    Fakultät Informatik, Mathematik und Naturwissenschaften \\
+    \vspace{1.6cm} \includegraphics[width=0.5\textwidth]{../img/org/htwk-logo.png}     
+\end{center}
+}
+
+\subject{Messergebnisse}
+
+\author{Richard Stiller\\
+  \small{\texttt{richard.nao.htwk@gmail.com}}}
+\title{Ultraschall-Messungen zum Test \glqq $\jobname$\grqq}
+\date{\small{\textit{\today}}}
+
+
+\maketitle
+\listoftables
+\clearpage
+\section*{Tabellen}
+\input \jobname.generate.tex
+\clearpage
+\section*{Anmerkung}   
+Alle Messwerte haben die Einheit Meter.
+\begin{description}
+    \item[Datei] Der Dateiname der Rawdatei mit den Messwerten.
+    \item[gefiltert] (optional) Messungen (zeilenweise Erfassung von Messdaten), die keine Hindernis enthalten haben (alle Werte sind \textit{2.55}), wurden nicht abgebildet.
+    \item[n] Für die Modi $< 4$ wichtig (\textit{Device/SubDeviceList/US/Sensor/Value}). Dies Werte sind immer identisch mit \textit{r0}.
+    \item[l0 .. l9] Bis zu 10 Messwerte (0 bis 9) auf der linken (l) Seite. Beispiel: Messung 1 in Links ist \textit{l1} oder \textit{Device/SubDeviceList/US/Left/Sensor/Value1}.
+    \item[r0 .. r9] Bis zu 10 Messwerte (0 bis 9) auf der rechten (r) Seite. Beispiel: Messung 1 in Rechts ist \textit{r1} oder \textit{Device/SubDeviceList/US/Right/Sensor/Value1}.
+    \item[Sichtbar] Sagt an, ob das Programm dieses Hindernis erfassen würde, beziehend auf den $[$\textbf{Winkel}$]$ aus der Analyse.
+    \item[Soll] Den Wert, den das Programm messen würde, siehe Analyse.
+    \item[\diameter{}Ist] Der Durchschnittswert der Messdaten über alle Messungen im jeweiligem Modus von den Spalten \textit{r0} oder \textit{l0}.
+    %Der Durchschnittswert der Messdaten über alle abweichenden Messungen.
+    \item[Differenz] Differenz zwischen Soll- und Ist-Wert.
+    \item[Analyse {$[$Winkel$]$}] (wenn vorhanden) Daten werden mit dem Programm USTest abgeglichen, ob die Werte in einem idealen Kegel mit dem Winkel \textit{Winkel} erfasst sind. Es werden ggf. die Abweichungen der Messwerte ausgegeben. 
+    \item[Keine Hindernisse gemessen] Es wurden alle Zeilen eines Durchlaufs heraus gefiltert.
+    \item[Keine Analyse] Folgt bei Analyse, wenn \textit{Keine Hindernisse gemessen} auftritt.
+
+\end{description}
+
+\end{document}
